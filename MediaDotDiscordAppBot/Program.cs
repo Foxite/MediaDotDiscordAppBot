@@ -9,7 +9,7 @@ var random = new Random();
 var linkRegex = new Regex(@"https://media\.discordapp\.(com|net)/([^\b])+");
 var discord = new DiscordClient(new DiscordConfiguration() {
 	Token = botToken,
-	Intents = DiscordIntents.GuildMessages
+	Intents = DiscordIntents.GuildMessages | DiscordIntents.Guilds
 });
 
 discord.MessageCreated += async (o, e) => {
