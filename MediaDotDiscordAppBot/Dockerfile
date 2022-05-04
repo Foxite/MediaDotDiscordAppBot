@@ -3,10 +3,9 @@ WORKDIR /app
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
-COPY ["MediaDotDiscordAppBot/MediaDotDiscordAppBot.csproj", "MediaDotDiscordAppBot/"]
-RUN dotnet restore "MediaDotDiscordAppBot/MediaDotDiscordAppBot.csproj"
+COPY ["MediaDotDiscordAppBot.csproj", "./"]
+RUN dotnet restore "MediaDotDiscordAppBot.csproj"
 COPY . .
-WORKDIR "/src/MediaDotDiscordAppBot"
 RUN dotnet build "MediaDotDiscordAppBot.csproj" -c Release -o /app/build
 
 FROM build AS publish
